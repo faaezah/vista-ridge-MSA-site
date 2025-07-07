@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <div id="google_translate_element"></div>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+          new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Sukūn – VRHS MSA</title>
@@ -165,6 +173,25 @@
 
 <body>
 
+<div class="translate-container"></div>
+
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+    .translate-container,
+    .goog-te-banner-frame,
+    .goog-logo-link,
+    .goog-te-gadget {
+      display: none !important;
+    }
+    body { top: 0px !important; }
+</style>
+
 <div id="progress-placeholder"></div>
 <script>
     fetch("progress.html")
@@ -175,7 +202,6 @@
 <header>
     <h1>Sukūn</h1>
     <nav>
-        <div id="google_translate_element"></div>
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="MSA%20Board.html">MSA Board</a>

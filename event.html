@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <div id="google_translate_element"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+    }
+  </script>
+  <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Prayer Times – Vista Ridge MSA</title>
@@ -107,6 +115,24 @@
 <link rel="icon" href="android-chrome-512x512.png" type="image/png">
 
 <body>
+<div class="translate-container"></div>
+
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+  }
+</script>
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<style>
+  .translate-container,
+  .goog-te-banner-frame,
+  .goog-logo-link,
+  .goog-te-gadget {
+    display: none !important;
+  }
+  body { top: 0px !important; }
+</style>
 
 <header>
   <h1>Prayer Times</h1>
