@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Meet the MSA Board – VRHS MSA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+          margin: 0;
+          font-family: 'Quicksand', sans-serif;
+          background: #ffffff;
+          color: #222;
+        }
+
+        header {
+          background: #b80000;
+          padding: 2.5rem 1rem 1.5rem;
+          text-align: center;
+          color: white;
+          border-bottom-left-radius: 2rem;
+          border-bottom-right-radius: 2rem;
+        }
+
+        header h1 {
+          font-size: 2.5rem;
+          margin: 0 0 1rem;
+        }
+
+        .top-bar {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          margin-bottom: 1rem;
+        }
+
+        nav {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+        }
+
+        nav a {
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+          position: relative;
+        }
+
+        nav a::after {
+          content: '';
+          height: 2px;
+          width: 0%;
+          background: white;
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+          width: 100%;
+        }
+
+        #google_translate_element {
+          background: white;
+          padding: 0.2rem 0.8rem;
+          border-radius: 6px;
+          font-size: 0.85rem;
+        }
+
+        .team {
+          text-align: center;
+          padding: 4rem 1.5rem 2rem;
+        }
+
+        .team h2 {
+          font-size: 2rem;
+          color: #b80000;
+          margin-bottom: 2.5rem;
+        }
+
+        .team-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+          gap: 2rem;
+          max-width: 1000px;
+          margin: 0 auto;
+        }
+
+        .member-card {
+          backdrop-filter: blur(14px);
+          background: rgba(255, 255, 255, 0.2);
+          border-radius: 1rem;
+          padding: 2rem 1.5rem;
+          box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+          border: 1px solid rgba(255,255,255,0.3);
+          transition: transform 0.3s ease;
+          color: #111;
+        }
+
+        .member-card:hover {
+          transform: translateY(-6px);
+        }
+
+        .member-card img {
+          width: 100px;
+          height: 100px;
+          object-fit: cover;
+          border-radius: 50%;
+          border: 3px solid white;
+          margin-bottom: 1rem;
+        }
+
+        .member-card h3 {
+          margin: 0.3rem 0;
+          font-size: 1.2rem;
+        }
+
+        .member-card .role {
+          color: #b80000;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          font-size: 0.95rem;
+        }
+
+        .member-card p {
+          font-size: 0.95rem;
+          color: #444;
+          line-height: 1.5;
+        }
+
+        footer {
+          background: #000;
+          color: white;
+          text-align: center;
+          padding: 1.5rem;
+          font-size: 0.9rem;
+        }
+
+        footer small {
+          color: #aaa;
+          display: block;
+          margin-top: 0.4rem;
+        }
+    </style>
+</head>
+<link rel="icon" href="android-chrome-512x512.png" type="image/png">
+
+<body>
+
+<header>
+    <h1>Meet the MSA Board</h1>
+    <div class="top-bar">
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href = "MSA%20Board.html">MSA Board</a>
+            <a href="event.html">Prayer Times</a>
+            <a href="timeline.html">Timeline</a>
+            <a href="contact.html">Contact</a>
+            <a href="gallery.html">Gallery</a>
+            <a href="Events.html">Events</a>
+            <a href="wellbeing.html">Sukūn سُكُون</a>
+        </nav>
+
+    </div>
+</header>
+
+<section class="team">
+    <h2>The MSA Board</h2>
+    <div class="team-grid">
+        <div class="member-card">
+            <img src="images/president.jpg" alt="MSA President">
+            <h3>Rifa S.</h3>
+            <p class="role">President</p>
+            <p>Rifa S. is a great person.</p>
+        </div>
+        <div class="member-card">
+            <img src="images/vicepresident.jpg" alt="MSA Vice President">
+            <h3>Rimsha A.</h3>
+            <p class="role">Vice President</p>
+            <p>Rimsha A. is a great person.</p>
+        </div>
+        <div class="member-card">
+            <img src="images/secretary.jpg" alt="MSA Secretary">
+            <h3>Faaezah S. A.</h3>
+            <p class="role">Web developer and Social Media Manager</p>
+            <p>Faaezah S. is a great person.</p>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <p>&copy; 2025 Vista Ridge Muslim Student Association</p>
+    <small>Programmed by Faaezah Ahmed Shaik</small>
+    <small onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.2'" style="opacity: 0.2; transition: opacity 0.3s;">Crafted with love for the MSA 🤍</small>
+
+</footer>
+
+<div id="quote-bubble" style="position: fixed; bottom: 1.5rem; left: 1rem; background: #fff8f3; color: #444; padding: 1rem 1.2rem; border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.1); max-width: 280px; font-size: 0.9rem; font-family: 'Quicksand', sans-serif; z-index: 99;"></div>
+
+<script>
+    const quotes = [
+      "“Sufficient for us is Allah, and He is the best disposer of affairs.” — Surah Aal-Imran 3:173",
+      "“And I did not create the jinn and mankind except to worship Me.” — Surah Ad-Zariyat 51:56",
+      "“Indeed, with hardship comes ease.” — Surah Ash-Sharh 94:6",
+      "“Allah does not burden a soul beyond that it can bear.” — Surah Al-Baqarah 2:286",
+      "“Our Lord, perfect for us our light and forgive us. Indeed, You are over all things competent.” — Surah At-Tahrim 66:8",
+      "“Indeed, Allah is with those who are patient.” — Surah Al-Anfal 8:46",
+      "“And say, ‘Truth has come and falsehood has vanished.’ Indeed, falsehood is bound to vanish.” — Surah Al-Isra 17:81",
+      "“Know that the life of this world is but amusement, diversion, and adornment… but the Hereafter is better for those who fear Allah.” — Surah Al-Hadid 57:20"
+    ];
+    document.getElementById("quote-bubble").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+</script>
+
+
+<div style="position: fixed; bottom: 1.2rem; right: 1rem; font-size: 1.7rem; animation: pulse 4s ease-in-out infinite; pointer-events: none; z-index: 99;">🌙</div>
+
+<style>
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+</style>
+
+<audio id="sound" src="https://cdn.pixabay.com/audio/2022/06/27/audio_73d98e7fc3.mp3"></audio>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position:fixed;
+         bottom:1.5rem;
+         right:1rem;
+         display:none;
+         padding:0.6rem 1rem;
+         border:none;
+         border-radius:8px;
+         background:#b80000;
+         color:#fff;
+         font-weight:bold;
+         font-family:'Quicksand', sans-serif;
+         z-index:100;
+         box-shadow:0 6px 12px rgba(0,0,0,0.15);"
+        id="toTop">↑</button>
+
+<script>
+    const btn = document.getElementById("toTop");
+    window.addEventListener("scroll", () => {
+      btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sukūn – VRHS MSA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        html { scroll-behavior: smooth; }
+        body {
+          margin: 0;
+          font-family: 'Quicksand', sans-serif;
+          background: linear-gradient(to bottom, #fff9f6, #ffffff);
+          color: #111;
+        }
+
+        header {
+          background: #b80000;
+          padding: 2.5rem 1rem 1.5rem;
+          text-align: center;
+          color: white;
+          border-bottom-left-radius: 2rem;
+          border-bottom-right-radius: 2rem;
+        }
+
+        header h1 {
+          font-size: 2.6rem;
+          margin-bottom: 0.5rem;
+        }
+
+        nav {
+          display: flex;
+          justify-content: center;
+          gap: 2rem;
+          flex-wrap: wrap;
+        }
+
+        nav a {
+          color: white;
+          text-decoration: none;
+          font-weight: 600;
+          position: relative;
+        }
+
+        nav a::after {
+          content: '';
+          height: 2px;
+          width: 0%;
+          background: white;
+          position: absolute;
+          bottom: -5px;
+          left: 0;
+          transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+          width: 100%;
+        }
+    .intro {
+      text-align: center;
+      padding: 3rem 1.5rem 1rem;
+    }
+
+    .intro h2 {
+      font-size: 2rem;
+      color: #b80000;
+      margin-bottom: 1rem;
+    }
+
+    .intro p {
+      color: #444;
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .audio-player {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      background: #fff0f0;
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      margin: 2rem auto;
+      max-width: 600px;
+      box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+      font-size: 1rem;
+      color: #b80000;
+    }
+
+    .audio-player button {
+      background: #b80000;
+      border: none;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .ayah-section {
+      max-width: 1100px;
+      margin: 2rem auto 4rem;
+      padding: 0 1.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .ayah-card {
+      background: white;
+      padding: 1.5rem;
+      border-left: 5px solid #b80000;
+      border-radius: 12px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+      opacity: 0;
+      transform: translateY(40px);
+      transition: 0.6s ease;
+    }
+
+    .ayah-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .ayah-arabic {
+      font-family: 'Noto Sans Arabic', serif;
+      font-size: 1.2rem;
+      direction: rtl;
+      text-align: right;
+      margin-bottom: 0.8rem;
+      color: #222;
+    }
+
+    .ayah-translation {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+
+    footer {
+      background: #000;
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    footer small {
+      color: #aaa;
+      display: block;
+      margin-top: 0.4rem;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.7; }
+    }
+    </style>
+</head>
+<link rel="icon" href="android-chrome-512x512.png" type="image/png">
+
+<body>
+
+<div id="progress-placeholder"></div>
+<script>
+    fetch("progress.html")
+      .then(res => res.text())
+      .then(data => document.getElementById("progress-placeholder").innerHTML = data);
+</script>
+
+<header>
+    <h1>Sukūn</h1>
+    <nav>
+        <div id="google_translate_element"></div>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="MSA%20Board.html">MSA Board</a>
+        <a href="event.html">Prayer Times</a>
+        <a href="timeline.html">Timeline</a>
+        <a href="contact.html">Contact</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="Events.html">Events</a>
+        <a href="wellbeing.html">Sukūn سُكُون</a>
+    </nav>
+</header>
+
+<section class="intro">
+    <h2>A space for stillness</h2>
+    <p>These verses and melodies are here to quiet the noise. Let this be your pause — a moment to reflect, breathe, and return inward.</p>
+</section>
+
+<div class="audio-player">
+    <button onclick="previousTrack()">⏮️</button>
+    <button onclick="playPause()">⏯️</button>
+    <button onclick="nextTrack()">⏭️</button>
+    <span id="now-playing">Now Playing: Nasheed تهدئة</span>
+    <audio id="player" src="audio/track1.mp3" preload="auto"></audio>
+</div>
+
+<section class="ayah-section">
+    <div class="ayah-card">
+        <div class="ayah-arabic">قُلْ يَا عِبَادِيَ ٱلَّذِينَ أَسْرَفُوا۟ عَلَىٰٓ أَنفُسِهِمْ لَا تَقْنَطُوا۟ مِن رَّحْمَةِ ٱللَّهِ ۚ إِنَّ ٱللَّهَ يَغْفِرُ ٱلذُّنُوبَ جَمِيعًا ًۚا</div>
+        <div class="ayah-translation">“Say, O My servants who have transgressed against themselves [by sinning], do not despair of the mercy of Allah. Indeed, Allah forgives all sins.” Surah Az-Zumar 39:53</div>
+    </div>
+    <div class="ayah-card">
+        <div class="ayah-arabic">ذَٰلِكَ ٱلْكِتَٰبُ لَا رَيْبَ ۛ فِيهِ ۛ هُدًى لِّلْمُتَّقِينَِ</div>
+        <div class="ayah-translation">“This is the Book about which there is no doubt, a guidance for those conscious of Allah.” — Surah Al-Baqarah 2:2</div>
+    </div>
+    <div class="ayah-card">
+        <div class="ayah-arabic">فَإِنِّي قَرِيبٌ ۖ أُجِيبُ دَعْوَةَ ٱلدَّاعِ إِذَا دَعَانِ</div>
+        <div class="ayah-translation">“Indeed I am near. I respond to the call of the supplicant when he calls upon Me.” - Surah Al-Baqarah 2:186</div>
+    </div>
+</section>
+<footer>
+    <p>&copy; 2025 Vista Ridge Muslim Student Association</p>
+    <small>Programmed by Faaezah Ahmed Shaik</small>
+    <small onmouseover="this.style.opacity='0.8'" onmouseout="this.style.opacity='0.2'" style="opacity: 0.2; transition: 0.3s;">Crafted with love for the MSA 🤍</small>
+</footer>
+
+<div id="quote-bubble" style="position: fixed; bottom: 1.5rem; left: 1rem; background: #fff8f3; color: #444; padding: 1rem 1.2rem; border-radius: 12px; box-shadow: 0 8px 18px rgba(0,0,0,0.1); max-width: 280px; font-size: 0.9rem; font-family: 'Quicksand', sans-serif; z-index: 99;"></div>
+<script>
+    const quotes = [
+      "“Sufficient for us is Allah, and He is the best disposer of affairs.” — Surah Aal-Imran 3:173",
+      "“And I did not create the jinn and mankind except to worship Me.” — Surah Ad-Zariyat 51:56",
+      "“Indeed, with hardship comes ease.” — Surah Ash-Sharh 94:6",
+      "“Allah does not burden a soul beyond that it can bear.” — Surah Al-Baqarah 2:286",
+      "“Our Lord, perfect for us our light and forgive us. Indeed, You are over all things competent.” — Surah At-Tahrim 66:8",
+      "“Indeed, Allah is with those who are patient.” — Surah Al-Anfal 8:46",
+      "“And say, ‘Truth has come and falsehood has vanished.’ Indeed, falsehood is bound to vanish.” — Surah Al-Isra 17:81",
+      "“Know that the life of this world is but amusement, diversion, and adornment… but the Hereafter is better for those who fear Allah.” — Surah Al-Hadid 57:20"
+    ];
+    document.getElementById("quote-bubble").innerText = quotes[Math.floor(Math.random() * quotes.length)];
+</script>
+
+<div style="position: fixed; bottom: 1.2rem; right: 1rem; font-size: 1.7rem; animation: pulse 4s ease-in-out infinite; pointer-events: none; z-index: 99;">🌙</div>
+
+<audio id="sound" src="https://cdn.pixabay.com/audio/2022/06/27/audio_73d98e7fc3.mp3"></audio>
+
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        style="position:fixed; bottom:1.5rem; right:1rem; display:none; padding:0.6rem 1rem; border:none;
+  border-radius:8px; background:#b80000; color:#fff; font-weight:bold; font-family:'Quicksand', sans-serif;
+  z-index:100; box-shadow:0 6px 12px rgba(0,0,0,0.15);" id="toTop">↑</button>
+
+<script>
+    const btn = document.getElementById("toTop");
+    window.addEventListener("scroll", () => {
+      btn.style.display = window.scrollY > 300 ? "block" : "none";
+    });
+</script>
+
+<script>
+    window.addEventListener('load', () => {
+      const cards = document.querySelectorAll('.ayah-card');
+      const reveal = () => {
+        cards.forEach(card => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 80) {
+            card.classList.add('visible');
+          }
+        });
+      };
+      reveal();
+      window.addEventListener('scroll', reveal);
+    });
+</script>
+
+<script>
+    const tracks = [
+      { title: "Nasheed تهدئة", file: "audio/track1.mp3" },
+      { title: "Nasheed الصحوة", file: "audio/track2.mp3" },
+      { title: "Nasheed عاطفي", file: "audio/track3.mp3" }
+    ];
+
+    let current = 0;
+    const player = document.getElementById('player');
+    const nowPlaying = document.getElementById('now-playing');
+
+    function playPause() {
+      player.paused ? player.play() : player.pause();
+    }
+
+    function nextTrack() {
+      current = (current + 1) % tracks.length;
+      updateTrack();
+    }
+
+    function previousTrack() {
+      current = (current - 1 + tracks.length) % tracks.length;
+      updateTrack();
+    }
+
+    function updateTrack() {
+      player.src = tracks[current].file;
+      nowPlaying.textContent = `Now Playing: ${tracks[current].title}`;
+      player.play();
+    }
+</script>
+
+</body>
+</html>

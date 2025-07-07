@@ -1,0 +1,22 @@
+<style>
+    #progress {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 4px;
+      background: #b80000;
+      z-index: 99;
+      transition: width 0.2s ease-out;
+    }
+</style>
+
+<div id="progress"></div>
+
+<script>
+    window.onscroll = () => {
+      const h = document.documentElement;
+      const scroll = (h.scrollTop || document.body.scrollTop) / (h.scrollHeight - h.clientHeight);
+      document.getElementById('progress').style.width = `${scroll * 100}%`;
+    };
+</script>
