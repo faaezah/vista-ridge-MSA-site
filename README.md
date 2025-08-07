@@ -24,9 +24,7 @@ The Muslim Student Association is dedicated to fostering a welcoming environment
 
 - `index.html` — Main landing page
 - `about.html`, `events.html`, `contact.html`, etc. — Secondary content pages
-- `/assets/` — Images and media files
-- `/css/` — Stylesheets
-- `/js/` — JavaScript files
+- `/audio/` — Images and media files
 
 ## Contribution Guidelines
 
